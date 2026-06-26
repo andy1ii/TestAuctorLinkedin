@@ -29,7 +29,7 @@ body {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 260px; /* Slightly widened to accommodate the larger logo */
+    width: 250px; 
     background: #F7F7F8;
     border-right: 1px solid #EBECEE;
     z-index: 100;
@@ -38,11 +38,15 @@ body {
 }
 
 .sidebar-header {
-    padding: 24px 16px 16px 16px; /* More breathing room around the logo */
+    /* Top and Left padding are exactly the same (14px) */
+    padding-top: 14px;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-bottom: 10px;
 }
 
 .brand-logo {
-    height: 32px; /* Noticeably larger logo */
+    height: 26px; /* Still large, but balanced with the tighter margins */
     max-width: 100%;
     display: block;
 }
@@ -50,7 +54,7 @@ body {
 .controls-content {
     flex: 1;
     overflow-y: auto;
-    padding: 0 16px;
+    padding: 0 14px; /* Matches the left padding of the header */
 }
 
 /* Custom minimal scrollbar for sidebar */
@@ -66,7 +70,7 @@ body {
 }
 
 .sidebar-footer {
-    padding: 16px;
+    padding: 12px 14px 14px 14px;
     display: flex;
     justify-content: flex-end; 
     background: #F7F7F8;
@@ -77,7 +81,7 @@ body {
     position: absolute;
     top: 10px;
     bottom: 10px;
-    left: 260px; /* Match new sidebar width */
+    left: 250px; /* Match new sidebar width */
     right: 10px;
     background: #FFFFFF;
     border-radius: 16px;
@@ -114,23 +118,23 @@ body {
 
 /* --- CONTROL PANEL UI ELEMENTS --- */
 #controls h2 { 
-    font-size: 0.8rem; 
+    font-size: 0.75rem; 
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: #888;
-    margin-bottom: 16px; /* Relaxed spacing */
+    margin-bottom: 12px; 
     font-weight: normal; 
 }
 
 .control-group { 
-    margin-bottom: 14px; /* Relaxed spacing so it isn't cramped */
+    margin-bottom: 11px; /* Tighter than the balanced version, looser than ultra-compact */
     display: flex; 
     flex-direction: column; 
 }
 
 .control-group label { 
     font-size: 0.7rem; 
-    margin-bottom: 4px; 
+    margin-bottom: 3px; 
     font-weight: normal; 
     color: #4A4A4A; 
 }
@@ -147,8 +151,8 @@ body {
 .switch {
     position: relative;
     display: inline-block;
-    width: 30px; 
-    height: 18px; 
+    width: 28px; 
+    height: 16px; 
 }
 .switch input { 
     opacity: 0;
@@ -166,8 +170,8 @@ body {
 .switch-slider:before {
     position: absolute;
     content: "";
-    height: 14px; 
-    width: 14px;
+    height: 12px; 
+    width: 12px;
     left: 2px;
     bottom: 2px;
     background-color: white;
@@ -185,12 +189,12 @@ input:checked + .switch-slider:before {
 textarea, select, input[type="text"] { 
     width: 100%; 
     font-family: inherit; 
-    font-size: 0.75rem; 
+    font-size: 0.7rem; 
     font-weight: normal;
     color: #1A1A1A;
-    padding: 6px 10px; /* Restored slight padding */
+    padding: 5px 8px; 
     border: 1px solid #E4E4E5; 
-    border-radius: 6px; 
+    border-radius: 5px; 
     background: #FFFFFF; 
     outline: none; 
     transition: all 0.2s ease; 
@@ -201,7 +205,7 @@ textarea, select, input[type="text"] {
 }
 
 textarea {
-    height: 32px; /* Slightly taller inputs */
+    height: 28px; 
 }
 
 textarea:focus, select:focus { 
@@ -219,8 +223,8 @@ textarea:disabled {
 select {
     background-image: url('data:image/svg+xml;utf8,<svg width="8" height="5" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="%23888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
     background-repeat: no-repeat;
-    background-position: right 10px center;
-    padding-right: 24px;
+    background-position: right 8px center;
+    padding-right: 22px;
     cursor: pointer;
 }
 
@@ -230,21 +234,21 @@ input[type="range"] {
     appearance: none;
     width: 100%;
     background: transparent;
-    padding: 4px 0; 
+    padding: 3px 0; 
 }
 input[type="range"]:focus {
     outline: none;
 }
 input[type="range"]::-webkit-slider-runnable-track {
     width: 100%;
-    height: 4px; 
+    height: 3px; 
     background: #E4E4E5;
     border-radius: 2px;
 }
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 12px; 
-    width: 12px;
+    height: 11px; 
+    width: 11px;
     border-radius: 50%;
     background: #FFFFFF;
     border: 1px solid #CCCCCC;
@@ -262,9 +266,9 @@ button {
     background: #FFFFFF; 
     color: #1A1A1A; 
     border: 1px solid #E4E4E5; 
-    padding: 6px 12px; 
+    padding: 5px 12px; 
     border-radius: 100px; 
-    font-size: 0.75rem; 
+    font-size: 0.7rem; 
     font-family: inherit;
     font-weight: normal; 
     cursor: pointer; 
@@ -283,7 +287,7 @@ button:active {
 
 #btn-replay {
     width: 100%;
-    margin-top: 4px;
+    margin-top: 3px;
 }
 
 #btn-record {
@@ -291,7 +295,7 @@ button:active {
     background: #1A1A1A;
     color: #FFFFFF;
     border: none;
-    padding: 8px 24px;
+    padding: 7px 22px;
     position: relative;
     overflow: hidden;
 }
@@ -316,7 +320,7 @@ button:active {
 .divider { 
     height: 1px; 
     background: #C0C0C0; 
-    margin: 16px 0; /* Relaxed divider margins */
+    margin: 12px 0; 
     opacity: 0.5; 
 }
 
@@ -337,9 +341,9 @@ button:active {
 }
 
 .color-item label { 
-    font-size: 0.7rem; 
+    font-size: 0.65rem; 
     color: #6A6A6A; 
-    margin-bottom: 4px;
+    margin-bottom: 3px;
     font-weight: normal;
 }
 
@@ -350,7 +354,7 @@ button:active {
 
 .selected-color {
     width: 100%;
-    height: 22px; 
+    height: 20px; 
     border-radius: 4px;
     border: 1px solid #E4E4E5;
     cursor: pointer;
