@@ -43,7 +43,6 @@ let renderStyle = 'radial';
 let showText = true;
 
 // --- THE MASTER LOOP CONSTANT ---
-// Kept at 10 seconds so the text and master loop remain untouched
 const LOOP_DURATION_MS = 10000; 
 
 let customTime = 0;
@@ -70,7 +69,7 @@ function preload() {
 }
 
 function setup() {
-    let canvas = createCanvas(1920, 1080);
+    let canvas = createCanvas(1200, 627);
     canvas.id('export-canvas'); 
     canvas.parent('recording-container'); 
     
@@ -81,8 +80,8 @@ function setup() {
     // CREATE HIDDEN DOWNSCALE CANVAS
     let hiddenCanvas = document.createElement('canvas');
     hiddenCanvas.id = 'hidden-export-canvas';
-    hiddenCanvas.width = 1920;
-    hiddenCanvas.height = 1080;
+    hiddenCanvas.width = 1200;
+    hiddenCanvas.height = 627;
     hiddenCanvas.style.display = 'none';
     document.body.appendChild(hiddenCanvas);
 
@@ -91,7 +90,7 @@ function setup() {
     }
 
     function resizeContainer() {
-        let scale = Math.min(windowWidth / 1920, windowHeight / 1080);
+        let scale = Math.min(windowWidth / 1200, windowHeight / 627);
         document.getElementById('recording-container').style.setProperty('--scale', scale);
     }
     window.addEventListener('resize', resizeContainer);
@@ -364,7 +363,7 @@ function draw() {
         // The canvas is now fully painted with the accurate t=0 frame!
         let hiddenCanvas = document.getElementById('hidden-export-canvas');
         if (hiddenCanvas) {
-            hiddenCanvas.getContext('2d').drawImage(document.getElementById('export-canvas'), 0, 0, 1920, 1080);
+            hiddenCanvas.getContext('2d').drawImage(document.getElementById('export-canvas'), 0, 0, 1200, 627);
         }
 
         // Calculate exact frames needed for a flawless loop
@@ -382,7 +381,7 @@ function draw() {
         // SUPERSAMPLE DOWNSCALING
         let hiddenCanvas = document.getElementById('hidden-export-canvas');
         if (hiddenCanvas) {
-            hiddenCanvas.getContext('2d').drawImage(document.getElementById('export-canvas'), 0, 0, 1920, 1080);
+            hiddenCanvas.getContext('2d').drawImage(document.getElementById('export-canvas'), 0, 0, 1200, 627);
         }
 
         let btn = document.getElementById('btn-record');
@@ -619,7 +618,6 @@ class Orb {
         let cy = height / 2;
         let scaledBaseRadius = this.baseRadius * orbSize;
 
-        // Amplitudes drastically reduced to create a slow, ambient visual effect over the 10-second loop
         if (currentLayout === 'random') {
             let baseX = cx + (this.randomXOffset * width * orbSpacing);
             let baseY = cy + (this.randomYOffset * height * orbSpacing);
