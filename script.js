@@ -43,8 +43,8 @@ let renderStyle = 'radial';
 let showText = true;
 
 // --- THE MASTER LOOP CONSTANT ---
-// Increased to 20 seconds to slow down the background movement while maintaining a perfect loop
-const LOOP_DURATION_MS = 20000; 
+// Kept at 10 seconds so the text and master loop remain untouched
+const LOOP_DURATION_MS = 10000; 
 
 let customTime = 0;
 let lastFrameTime = 0; 
@@ -512,7 +512,6 @@ function playTextSequence() {
 function drawTextAnimation() {
     if (!textAnim.active || textAnim.words.length === 0) return;
 
-    // Cycle the text every 10 seconds perfectly into the 20-second background loop
     let TEXT_CYCLE_MS = LOOP_DURATION_MS / 2; 
 
     let t = customTime % TEXT_CYCLE_MS;
@@ -620,11 +619,11 @@ class Orb {
         let cy = height / 2;
         let scaledBaseRadius = this.baseRadius * orbSize;
 
-        // Amplitudes reduced to match the increased cycle duration for a much softer, elegant movement
+        // Amplitudes drastically reduced to create a slow, ambient visual effect over the 10-second loop
         if (currentLayout === 'random') {
             let baseX = cx + (this.randomXOffset * width * orbSpacing);
             let baseY = cy + (this.randomYOffset * height * orbSpacing);
-            let slideX = sin(time + this.phaseOffset) * 100 * orbSpacing;
+            let slideX = sin(time + this.phaseOffset) * 40 * orbSpacing;
             this.currentX = baseX + slideX;
             this.currentY = baseY;
             this.currentRadius = scaledBaseRadius;
@@ -634,7 +633,7 @@ class Orb {
             let spread = ((min(width, height) * 0.2)) * orbSpacing;
             let baseX = cx + cos(angle) * spread;
             let baseY = cy + sin(angle) * spread;
-            let slideY = sin(time + this.phaseOffset) * 50 * orbSpacing;
+            let slideY = sin(time + this.phaseOffset) * 20 * orbSpacing;
             this.currentX = baseX;
             this.currentY = baseY + slideY;
             this.currentRadius = scaledBaseRadius * 0.8;
@@ -643,7 +642,7 @@ class Orb {
             let spread = (this.baseRadius * 0.85) * orbSpacing; 
             let yOffset = 0;
             if (orbCount > 1) yOffset = map(this.index, 0, orbCount - 1, -spread, spread);
-            let slideX = sin(time + this.phaseOffset) * 80 * orbSpacing;
+            let slideX = sin(time + this.phaseOffset) * 30 * orbSpacing;
             this.currentX = cx + slideX;
             this.currentY = cy + yOffset;
             this.currentRadius = scaledBaseRadius * 0.85;
@@ -652,7 +651,7 @@ class Orb {
             let spread = (this.baseRadius * 1.2) * orbSpacing; 
             let xOffset = 0;
             if (orbCount > 1) xOffset = map(this.index, 0, orbCount - 1, -spread, spread);
-            let slideY = sin(time + this.phaseOffset) * 80 * orbSpacing;
+            let slideY = sin(time + this.phaseOffset) * 30 * orbSpacing;
             this.currentX = cx + xOffset;
             this.currentY = cy + slideY;
             this.currentRadius = scaledBaseRadius * 0.85;
@@ -660,7 +659,7 @@ class Orb {
         } else if (currentLayout === 'concentric') {
             let direction = (this.index % 2 === 0) ? 1 : -1;
             let depthMultiplier = (this.index + 1) / orbCount; 
-            let slideX = sin(time + this.phaseOffset) * 100 * orbSpacing * direction * depthMultiplier;
+            let slideX = sin(time + this.phaseOffset) * 40 * orbSpacing * direction * depthMultiplier;
             this.currentX = cx + slideX;
             this.currentY = cy;
             let stagger = 1 - ((this.index % orbCount) * (0.8 / orbCount));
