@@ -89,10 +89,19 @@ function setup() {
         frameRate(FPS);
     }
 
+    // ACCURATE CONTAINER RESIZING
     function resizeContainer() {
-        let scale = Math.min(windowWidth / 1200, windowHeight / 627);
+        let mainArea = document.getElementById('main-area');
+        if (!mainArea) return;
+        
+        // Subtracting 40px to add a comfortable padding inside the white area
+        let availableWidth = mainArea.clientWidth - 40;
+        let availableHeight = mainArea.clientHeight - 40;
+        
+        let scale = Math.min(availableWidth / 1200, availableHeight / 627);
         document.getElementById('recording-container').style.setProperty('--scale', scale);
     }
+    
     window.addEventListener('resize', resizeContainer);
     resizeContainer();
 
@@ -618,6 +627,7 @@ class Orb {
         let cy = height / 2;
         let scaledBaseRadius = this.baseRadius * orbSize;
 
+        // Amplitudes drastically reduced to create a slow, ambient visual effect over the 10-second loop
         if (currentLayout === 'random') {
             let baseX = cx + (this.randomXOffset * width * orbSpacing);
             let baseY = cy + (this.randomYOffset * height * orbSpacing);
