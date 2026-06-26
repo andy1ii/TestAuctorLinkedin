@@ -29,7 +29,7 @@ body {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 240px; /* Ultra narrow sidebar */
+    width: 260px; /* Slightly widened to accommodate the larger logo */
     background: #F7F7F8;
     border-right: 1px solid #EBECEE;
     z-index: 100;
@@ -38,11 +38,11 @@ body {
 }
 
 .sidebar-header {
-    padding: 12px 12px 8px 12px;
+    padding: 24px 16px 16px 16px; /* More breathing room around the logo */
 }
 
 .brand-logo {
-    height: 16px; /* Tiny logo */
+    height: 32px; /* Noticeably larger logo */
     max-width: 100%;
     display: block;
 }
@@ -50,7 +50,7 @@ body {
 .controls-content {
     flex: 1;
     overflow-y: auto;
-    padding: 0 12px;
+    padding: 0 16px;
 }
 
 /* Custom minimal scrollbar for sidebar */
@@ -66,7 +66,7 @@ body {
 }
 
 .sidebar-footer {
-    padding: 8px 12px 12px 12px;
+    padding: 16px;
     display: flex;
     justify-content: flex-end; 
     background: #F7F7F8;
@@ -77,7 +77,7 @@ body {
     position: absolute;
     top: 10px;
     bottom: 10px;
-    left: 240px; /* Match new sidebar width */
+    left: 260px; /* Match new sidebar width */
     right: 10px;
     background: #FFFFFF;
     border-radius: 16px;
@@ -114,23 +114,23 @@ body {
 
 /* --- CONTROL PANEL UI ELEMENTS --- */
 #controls h2 { 
-    font-size: 0.75rem; 
+    font-size: 0.8rem; 
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: #888;
-    margin-bottom: 8px; /* Extremely tight margin */
+    margin-bottom: 16px; /* Relaxed spacing */
     font-weight: normal; 
 }
 
 .control-group { 
-    margin-bottom: 6px; /* Extremely tight margin */
+    margin-bottom: 14px; /* Relaxed spacing so it isn't cramped */
     display: flex; 
     flex-direction: column; 
 }
 
 .control-group label { 
-    font-size: 0.65rem; /* Tiny labels */
-    margin-bottom: 2px; 
+    font-size: 0.7rem; 
+    margin-bottom: 4px; 
     font-weight: normal; 
     color: #4A4A4A; 
 }
@@ -147,8 +147,8 @@ body {
 .switch {
     position: relative;
     display: inline-block;
-    width: 28px; 
-    height: 16px; 
+    width: 30px; 
+    height: 18px; 
 }
 .switch input { 
     opacity: 0;
@@ -166,8 +166,8 @@ body {
 .switch-slider:before {
     position: absolute;
     content: "";
-    height: 12px; 
-    width: 12px;
+    height: 14px; 
+    width: 14px;
     left: 2px;
     bottom: 2px;
     background-color: white;
@@ -185,23 +185,23 @@ input:checked + .switch-slider:before {
 textarea, select, input[type="text"] { 
     width: 100%; 
     font-family: inherit; 
-    font-size: 0.7rem; 
+    font-size: 0.75rem; 
     font-weight: normal;
     color: #1A1A1A;
-    padding: 4px 8px; /* Tiny padding */
+    padding: 6px 10px; /* Restored slight padding */
     border: 1px solid #E4E4E5; 
-    border-radius: 4px; 
+    border-radius: 6px; 
     background: #FFFFFF; 
     outline: none; 
     transition: all 0.2s ease; 
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    resize: none; /* Prevent vertical resize to save space */
+    resize: none; 
 }
 
 textarea {
-    height: 24px; /* Basically a single-line input now but accepts line breaks */
+    height: 32px; /* Slightly taller inputs */
 }
 
 textarea:focus, select:focus { 
@@ -219,8 +219,8 @@ textarea:disabled {
 select {
     background-image: url('data:image/svg+xml;utf8,<svg width="8" height="5" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="%23888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
     background-repeat: no-repeat;
-    background-position: right 8px center;
-    padding-right: 20px;
+    background-position: right 10px center;
+    padding-right: 24px;
     cursor: pointer;
 }
 
@@ -230,21 +230,21 @@ input[type="range"] {
     appearance: none;
     width: 100%;
     background: transparent;
-    padding: 2px 0; 
+    padding: 4px 0; 
 }
 input[type="range"]:focus {
     outline: none;
 }
 input[type="range"]::-webkit-slider-runnable-track {
     width: 100%;
-    height: 2px; /* Thinner track */
+    height: 4px; 
     background: #E4E4E5;
-    border-radius: 1px;
+    border-radius: 2px;
 }
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 10px; /* Tiny thumb */
-    width: 10px;
+    height: 12px; 
+    width: 12px;
     border-radius: 50%;
     background: #FFFFFF;
     border: 1px solid #CCCCCC;
@@ -262,9 +262,9 @@ button {
     background: #FFFFFF; 
     color: #1A1A1A; 
     border: 1px solid #E4E4E5; 
-    padding: 4px 10px; 
+    padding: 6px 12px; 
     border-radius: 100px; 
-    font-size: 0.7rem; 
+    font-size: 0.75rem; 
     font-family: inherit;
     font-weight: normal; 
     cursor: pointer; 
@@ -283,7 +283,7 @@ button:active {
 
 #btn-replay {
     width: 100%;
-    margin-top: 2px;
+    margin-top: 4px;
 }
 
 #btn-record {
@@ -291,7 +291,7 @@ button:active {
     background: #1A1A1A;
     color: #FFFFFF;
     border: none;
-    padding: 6px 20px;
+    padding: 8px 24px;
     position: relative;
     overflow: hidden;
 }
@@ -316,7 +316,7 @@ button:active {
 .divider { 
     height: 1px; 
     background: #C0C0C0; 
-    margin: 8px 0; 
+    margin: 16px 0; /* Relaxed divider margins */
     opacity: 0.5; 
 }
 
@@ -324,7 +324,7 @@ button:active {
 .color-row { 
     display: flex; 
     flex-direction: row; 
-    gap: 6px; 
+    gap: 8px; 
     justify-content: space-between; 
     align-items: flex-start; 
 }
@@ -337,9 +337,9 @@ button:active {
 }
 
 .color-item label { 
-    font-size: 0.65rem; 
+    font-size: 0.7rem; 
     color: #6A6A6A; 
-    margin-bottom: 2px;
+    margin-bottom: 4px;
     font-weight: normal;
 }
 
@@ -350,7 +350,7 @@ button:active {
 
 .selected-color {
     width: 100%;
-    height: 18px; /* Ultra-thin color block */
+    height: 22px; 
     border-radius: 4px;
     border: 1px solid #E4E4E5;
     cursor: pointer;
@@ -367,15 +367,15 @@ button:active {
     top: calc(100% + 6px);
     left: 50%;
     transform: translateX(-50%);
-    width: 140px; 
+    width: 150px; 
     background: #FFFFFF;
     border: 1px solid #EBECEE;
     border-radius: 6px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    padding: 6px;
+    padding: 8px;
     display: none;
     flex-wrap: wrap;
-    gap: 4px;
+    gap: 6px;
     justify-content: flex-start; 
     z-index: 200;
 }
@@ -398,9 +398,9 @@ button:active {
 }
 
 .swatch {
-    width: 16px; /* Micro swatches */
-    height: 16px;
-    border-radius: 3px;
+    width: 18px; 
+    height: 18px;
+    border-radius: 4px;
     cursor: pointer;
     border: 1px solid rgba(0,0,0,0.08);
     transition: transform 0.1s, box-shadow 0.1s;
